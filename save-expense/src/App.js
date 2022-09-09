@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
 import Home from "./Home";
 import Login from "./Login";
 import ContactUs from "./ContactUs";
+import DashBoard from "./DashBoard";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
@@ -19,12 +20,16 @@ function App() {
           <NavLink exact activeClassName="active" to="/contactUs">
             <b>Contact Us</b>
           </NavLink>
+          <NavLink exact activeClassName="active" to="/dashBoard">
+            <b>DashBoard</b>
+          </NavLink>
         </div>
         <div className="content">
           <Routes>
             <Route exact path="/" element={<Home />}></Route>
             <Route exact path="/login" element={<Login />}></Route>
             <Route exact path="/contactUs" element={<ContactUs />}></Route>
+            <Route exact path="/dashBoard" element={<DashBoard />}></Route>
           </Routes>
         </div>
       </BrowserRouter>
