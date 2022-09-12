@@ -1,11 +1,15 @@
 import React, { useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 const Login = (props) => {
-  const handleLogin = () => {
-    props.history.push("/contactUs");
-  };
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+  const handleLogin = () => {
+    navigate("/dashBoard");
+  };
+  const handleSignUp = () => {
+    navigate("/signUp");
+  };
   return (
     <section class="vh-50 bg-image">
       <div class="mask d-flex align-items-center h-100 gradient-custom-3">
@@ -52,7 +56,15 @@ const Login = (props) => {
                       class="btn btn-primary"
                       onClick={handleLogin}
                     >
-                      Login{" "}
+                      Login
+                    </button>
+                    &nbsp;&nbsp;
+                    <button
+                      type="submit"
+                      class="btn btn-primary"
+                      onClick={handleSignUp}
+                    >
+                      SignUp
                     </button>
                   </form>
                 </div>
