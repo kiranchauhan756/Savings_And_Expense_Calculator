@@ -1,35 +1,30 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import { Nav, NavLink, Bars, NavMenu } from "./NavbarElements";
+import Tab from "@material-ui/core/Tab";
+import Tabs from "@material-ui/core/Tabs";
+import Savings from "./Savings";
+import Spendings from "./Spendings";
+import Transactions from "./Transactions";
 
 const DashBoard = () => {
-  const navigate = useNavigate();
-  const handleSavings = () => {
-    navigate("/savings");
-  };
-  const handleTransactions = () => {
-    navigate("/transactions");
-  };
-  const handleSpendings = () => {
-    navigate("/spendings");
-  };
+  const [value, setValue] = React.useState(0);
+
   return (
     <>
-      <Nav>
-        <Bars />
-
-        <NavMenu>
-          <NavLink to="/savings" onClick={handleSavings} activeStyle>
-            Savings
-          </NavLink>
-          <NavLink to="/spendings" onClick={handleSpendings} activeStyle>
-            Spendings
-          </NavLink>
-          <NavLink to="/transactions" onClick={handleTransactions} activeStyle>
-            Transactions
-          </NavLink>
-        </NavMenu>
-      </Nav>
+      <Tabs
+        value={value}
+        textColor="primary"
+        indicatorColor="primary"
+        onChange={(event, newValue) => {
+          setValue(newValue);
+        }}
+      >
+        <Tab label="Saving" />
+        <Tab label="Spendings" />
+        <Tab label="Transactions" />
+      </Tabs>
+      {value === 0 && <Savings />}
+      {value === 1 && <Spendings />}
+      {value === 2 && <Transactions />}
     </>
   );
 };
