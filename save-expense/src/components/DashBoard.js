@@ -4,6 +4,8 @@ import Tabs from "@material-ui/core/Tabs";
 import Savings from "./Savings";
 import Spendings from "./Spendings";
 import Transactions from "./Transactions";
+import Accounts from "./Accounts";
+import SetGoal from "./SetGoal";
 
 const DashBoard = () => {
   const [value, setValue] = React.useState(0);
@@ -21,10 +23,14 @@ const DashBoard = () => {
         <Tab label="Saving" />
         <Tab label="Spendings" />
         <Tab label="Transactions" />
+        <Tab label="Accounts" />
+        <Tab label="SetGoal" />
       </Tabs>
       {value === 0 && <Savings />}
       {value === 1 && <Spendings />}
       {value === 2 && <Transactions />}
+      {value === 3 && <Accounts />}
+      {value === 4 && <SetGoal />}
     </>
   );
 };
