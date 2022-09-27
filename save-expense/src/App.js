@@ -13,18 +13,6 @@ import SetGoal from "./components/SetGoal";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
-  // const [details, setDetails] = useState([]);
-  // function fetchDetails() {
-  //   fetch("https://swapi.dev/api/planets")
-  //     .then((response) => {
-  //       return response.json;
-  //     })
-  //     .then((data) => {
-  //       const clickMe = data.results;
-  //       setDetails(data.results);
-  //     });
-  // }
-
   return (
     <div className="App">
       <BrowserRouter>
@@ -37,9 +25,6 @@ function App() {
           </NavLink>
           <NavLink exact activeClassName="active" to="/contactUs">
             <b>Contact Us</b>
-          </NavLink>
-          <NavLink exact activeClassName="active" to="/dashBoard">
-            <b>DashBoard</b>
           </NavLink>
         </div>
         <div className="content">

@@ -36,3 +36,15 @@ code {
 .content {
   padding: 20px;
 }
+
+.button {
+  display: inline-flex;
+  height: 50px;
+  padding: 20px;
+  outline: none;
+  overflow: hidden;
+}
+.button__icon {
+  height: 19px;
+  width: 17px;
+}
