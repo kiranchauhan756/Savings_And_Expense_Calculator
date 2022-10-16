@@ -1,68 +1,97 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const emailRef = useRef("");
+  const passwordRef = useRef("");
+  const [error, setError] = useState(false);
   const navigate = useNavigate();
-  const handleLogin = () => {
-    navigate("/dashBoard");
-  };
+
   const handleSignUp = () => {
     navigate("/signUp");
   };
+  async function submitHandler(event) {
+    event.preventDefault();
+    const user = {
+      emailId: emailRef.current.value,
+      password: passwordRef.current.value,
+    };
+
+    const response = await fetch("http://localhost:8080/user/login", {
+      method: "POST",
+      body: JSON.stringify(user),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (response.ok) {
+      navigate("/dashboard");
+    } else {
+      {
+        setError(true);
+      }
+    }
+  }
+
   return (
-    <section class="vh-50 bg-image">
-      <div class="mask d-flex align-items-center h-100 gradient-custom-3">
-        <div class="container h-100">
-          <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col-12 col-md-9 col-lg-7 col-xl-6">
-              <div class="card">
-                <div class="card-body p-5">
-                  <h2 class="text-uppercase text-center mb-5">
+    <section className="vh-50 bg-image">
+      <div className="mask d-flex align-items-center h-100 gradient-custom-3">
+        <div className="container h-100">
+          <div className="row d-flex justify-content-center align-items-center h-100">
+            <div className="col-12 col-md-9 col-lg-7 col-xl-6">
+              <div className="card">
+                <div className="card-body p-5">
+                  <h2 className="text-uppercase text-center mb-5">
                     Login to Application
                   </h2>
-                  <form>
-                    <label for="username">Username:</label>
+
+                  <div
+                    className="error"
+                    style={{
+                      display: error ? "" : "none",
+                      textAlign: "center",
+                      color: "red",
+                      fontSize: "18px",
+                      fontStyle: "italic",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    <p>
+                      Invalid Email Or Password...<br></br>
+                    </p>
+                  </div>
+                  <form onSubmit={submitHandler}>
+                    <label htmlFor="email">Email:</label>
                     <br></br>
                     <input
                       type="text"
-                      id="username"
-                      name="username"
-                      class="form-control"
-                      placeholder="E-mail/Username"
-                      required
-                      autofocus
-                      value={username}
-                      onChange={(e) => setUsername(e.target.value)}
-                    ></input>
+                      id="email"
+                      className="form-control"
+                      placeholder="E-mail"
+                      required={true}
+                      ref={emailRef}
+                    />
                     <br></br>
-                    <label for="password">Password:</label>
+                    <label htmlFor="password">Password:</label>
                     <br></br>
                     <input
                       type="text"
                       id="password"
-                      name="password"
-                      class="form-control"
+                      className="form-control"
                       placeholder="Password"
-                      required
-                      autofocus
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                    ></input>
+                      required={true}
+                      ref={passwordRef}
+                    />
                     <br></br>
                     <br></br>
-                    <button
-                      type="submit"
-                      class="btn btn-primary"
-                      onClick={handleLogin}
-                    >
+                    <button type="submit" className="btn btn-primary">
                       Login
                     </button>
                     &nbsp;&nbsp;
                     <button
-                      type="submit"
-                      class="btn btn-primary"
+                      type="button"
+                      className="btn btn-primary"
                       onClick={handleSignUp}
                     >
                       SignUp

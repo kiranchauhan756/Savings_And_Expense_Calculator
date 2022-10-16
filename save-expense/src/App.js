@@ -10,6 +10,7 @@ import Transactions from "./components/Transactions";
 import Spendings from "./components/Spendings";
 import Accounts from "./components/Accounts";
 import SetGoal from "./components/SetGoal";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
@@ -17,29 +18,41 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <div className="header">
-          <NavLink exact activeClassName="active" to="/">
+          <NavLink exact={true} activeclassname="active" to="/">
             <b>Home</b>
           </NavLink>
-          <NavLink exact activeClassName="active" to="/login">
+          <NavLink exact={true} activeclassname="active" to="/login">
             <b>Login</b>
           </NavLink>
-          <NavLink exact activeClassName="active" to="/contactUs">
+          <NavLink exact={true} activeclassname="active" to="/contactUs">
             <b>Contact Us</b>
           </NavLink>
         </div>
         <div className="content">
           <Routes>
-            <Route exact path="/" element={<Home />}></Route>
-            <Route exact path="/login" element={<Login />}></Route>
-            <Route exact path="/contactUs" element={<ContactUs />}></Route>
-            <Route exact path="/dashBoard" element={<DashBoard />}></Route>
-            <Route exact path="/signUp" element={<SignUp />}></Route>
-            <Route exact path="/savings" element={<Savings />}></Route>
-            <Route exact path="/spendings" element={<Spendings />}></Route>
-            <Route exact path="/accounts" element={<Accounts />}></Route>
-            <Route exact path="/setgoals" element={<SetGoal />}></Route>
+            <Route exact={true} path="/" element={<Home />}></Route>
+            <Route exact={true} path="/login" element={<Login />}></Route>
             <Route
-              exact
+              exact={true}
+              path="/contactUs"
+              element={<ContactUs />}
+            ></Route>
+            <Route
+              exact={true}
+              path="/dashBoard"
+              element={<DashBoard />}
+            ></Route>
+            <Route exact={true} path="/signUp" element={<SignUp />}></Route>
+            <Route exact={true} path="/savings" element={<Savings />}></Route>
+            <Route
+              exact={true}
+              path="/spendings"
+              element={<Spendings />}
+            ></Route>
+            <Route exact={true} path="/accounts" element={<Accounts />}></Route>
+            <Route exact={true} path="/setgoals" element={<SetGoal />}></Route>
+            <Route
+              exact={true}
               path="/transactions"
               element={<Transactions />}
             ></Route>
