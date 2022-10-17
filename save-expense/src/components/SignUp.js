@@ -1,19 +1,23 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
-  const userNameRef = useRef("");
   const emailRef = useRef("");
+  const firstNameRef = useRef("");
+  const lastNameRef = useRef("");
+  const mobileNumRef = useRef("");
   const passwordRef = useRef("");
   const confirmPasswordRef = useRef("");
-  const [error, setError] = useState(false);
+
   const navigate = useNavigate();
 
   async function submitSignUp(event) {
     event.preventDefault();
     const user = {
-      username: userNameRef.current.value,
       emailId: emailRef.current.value,
+      firstName: firstNameRef.current.value,
+      lastName: lastNameRef.current.value,
+      mobileNum: mobileNumRef.current.value,
       password: passwordRef.current.value,
       confirmPassword: confirmPasswordRef.current.value,
     };
@@ -25,9 +29,7 @@ const SignUp = () => {
         "Content-Type": "application/json",
       },
     });
-    if (user.password !== user.confirmPassword) {
-      setError(true);
-    }
+
     if (response.ok) {
       navigate("/login");
     }
@@ -44,44 +46,59 @@ const SignUp = () => {
                     New User Registration
                   </h2>
 
-                  <div
-                    className="error"
-                    style={{
-                      display: error ? "" : "none",
-                      textAlign: "center",
-                      color: "red",
-                      fontSize: "18px",
-                      fontStyle: "italic",
-                      fontWeight: "bold",
-                    }}
-                  >
-                    <p>
-                      Password is not matching...<br></br>
-                    </p>
-                  </div>
                   <form onSubmit={submitSignUp}>
-                    <label htmlFor="username">Username:</label>
                     <br></br>
-                    <input
-                      type="text"
-                      id="username"
-                      className="form-control"
-                      placeholder="Username"
-                      required={true}
-                      ref={userNameRef}
-                    />
-                    <br></br>
-                    <label htmlFor="email">Email-Id:</label>
+                    <label htmlFor="email">
+                      <h6>Email_Id / UserName:</h6>
+                    </label>
                     <input
                       type="text"
                       id="email"
                       className="form-control"
-                      placeholder="Email"
+                      placeholder="Email/Username"
                       required={true}
                       ref={emailRef}
                     />
                     <br></br>
-                    <label htmlFor="password">Password:</label>
+                    <label htmlFor="firstname">
+                      <h6>First_Name:</h6>
+                    </label>
+                    <input
+                      type="text"
+                      id="firstname"
+                      className="form-control"
+                      placeholder="FirstName"
+                      required={true}
+                      ref={firstNameRef}
+                    />
+                    <br></br>
+                    <label htmlFor="lastName">
+                      <h6>Last_Name:</h6>
+                    </label>
+                    <input
+                      type="text"
+                      id="lastName"
+                      className="form-control"
+                      placeholder="lastName"
+                      required={true}
+                      ref={lastNameRef}
+                    />
+                    <br></br>
+                    <label htmlFor="phoneNum">
+                      <h6>Contact_Number:</h6>
+                    </label>
+                    <input
+                      type="text"
+                      id="phonenum"
+                      className="form-control"
+                      placeholder="PhoneNum"
+                      required={true}
+                      ref={mobileNumRef}
+                    />
+                    <br></br>
+                    <label htmlFor="password">
+                      <h6>Password:</h6>
+                    </label>
                     <br></br>
                     <input
                       type="text"
@@ -92,7 +109,9 @@ const SignUp = () => {
                       ref={passwordRef}
                     />
                     <br></br>
-                    <label htmlFor="cpassword">Confirm:</label>
+                    <label htmlFor="cpassword">
+                      <h6>Confirm:</h6>
+                    </label>
                     <br></br>
                     <input
                       type="text"
@@ -103,9 +122,11 @@ const SignUp = () => {
                       ref={confirmPasswordRef}
                     />
                     <br></br>
-                    <button type="submit" className="btn btn-primary">
-                      Submit
-                    </button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;``
+                    <button className="btn btn-primary">Submit</button>
                   </form>
                 </div>
               </div>

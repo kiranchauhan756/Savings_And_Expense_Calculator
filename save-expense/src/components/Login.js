@@ -62,7 +62,9 @@ const Login = () => {
                     </p>
                   </div>
                   <form onSubmit={submitHandler}>
-                    <label htmlFor="email">Email:</label>
+                    <label htmlFor="email">
+                      <h6>E-Mail / UserName</h6>
+                    </label>
                     <br></br>
                     <input
                       type="text"
@@ -73,7 +75,9 @@ const Login = () => {
                       ref={emailRef}
                     />
                     <br></br>
-                    <label htmlFor="password">Password:</label>
+                    <label htmlFor="password">
+                      <h6>Password:</h6>
+                    </label>
                     <br></br>
                     <input
                       type="text"
@@ -85,6 +89,11 @@ const Login = () => {
                     />
                     <br></br>
                     <br></br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <button type="submit" className="btn btn-primary">
                       Login
                     </button>
