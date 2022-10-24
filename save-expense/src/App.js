@@ -17,7 +17,10 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <div className="header">
+        <div
+          className="header"
+          style={{ display: "flex", justifyContent: "flex-end" }}
+        >
           <NavLink exact="true" activeclassname="active" to="/">
             <b>Home</b>
           </NavLink>
