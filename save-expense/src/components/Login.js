@@ -28,9 +28,7 @@ const Login = () => {
     if (response.ok) {
       navigate("/dashboard");
     } else {
-      {
-        setError(true);
-      }
+      setError(true);
     }
   }
 
@@ -45,7 +43,6 @@ const Login = () => {
                   <h2 className="text-uppercase text-center mb-5">
                     Login to Application
                   </h2>
-
                   <div
                     className="error"
                     style={{

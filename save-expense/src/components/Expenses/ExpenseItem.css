@@ -4,7 +4,7 @@
   align-items: center;
   padding: 0.5rem;
   margin: 1rem 0;
-  background-color: rgb(16, 170, 231);
+  background-color: rgb(200, 212, 218);
 }
 
 .expense-item__description {
@@ -19,7 +19,7 @@
 
 .expense-item h2 {
   color: #3a3a3a;
-  font-size: 1rem;
+  font-size: 1.4rem;
   flex: 1;
   margin: 0 1rem;
 }
@@ -34,7 +34,7 @@
   border-radius: 12px;
 }
 
-@media (min-width: 580px) {
+@media (min-width: 400px) {
   .expense-item__description {
     flex-direction: row;
     align-items: center;
@@ -43,7 +43,7 @@
   }
 
   .expense-item__description h2 {
-    font-size: 1.25rem;
+    font-size: 3.25rem;
   }
 
   .expense-item__price {

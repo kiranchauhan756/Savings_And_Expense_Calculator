@@ -1,7 +1,11 @@
-import React from "react";
-
+import { NavLink } from "react-router-dom";
 const Home = () => {
-  return <div>This is a homepage..</div>;
+  return (
+    <div>
+      <NavLink exact="true" activeclassname="active" to="/login">
+        <b>Login</b>
+      </NavLink>
+    </div>
+  );
 };
-
 export default Home;

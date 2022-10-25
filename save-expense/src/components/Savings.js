@@ -1,7 +1,13 @@
 import React from "react";
-
+import SideBar from "./SideBar";
 const Savings = () => {
-  return <div>This is savings page</div>;
+  return (
+    <div>
+      <div>
+        <SideBar />
+      </div>
+    </div>
+  );
 };
 
 export default Savings;
