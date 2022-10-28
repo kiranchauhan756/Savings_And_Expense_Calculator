@@ -10,3 +10,5 @@ import com.savings.bachat.entity.User;
 public interface UserRepository extends JpaRepository<User, String>{
 
 }
+
+

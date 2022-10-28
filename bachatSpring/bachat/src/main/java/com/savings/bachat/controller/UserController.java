@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.savings.bachat.entity.User;
 import com.savings.bachat.service.UserServiceI;
 
@@ -37,6 +36,7 @@ public class UserController {
 	public ResponseEntity<User> signup( @RequestBody User user) {
 		User user1 = userService.signup(user);
 		return ResponseEntity.status(HttpStatus.CREATED).body(user1);
+		
 	}
 
 }
