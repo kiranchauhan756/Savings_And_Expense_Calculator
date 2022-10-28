@@ -16,19 +16,31 @@ const ExpenseForm = (props) => {
   const dateChangeHandler = (event) => {
     setDateChange(event.target.value);
   };
-  const submitHandler = (event) => {
-    event.preventDefault();
+  //--------------for dbms--------------//
 
+  //-------------------------------///
+  async function submitHandler(event) {
+    event.preventDefault();
     const expenseData = {
       title: titleChange,
       amount: amountChange,
-      date: new Date(dateChange),
+      expenseDate: new Date(dateChange),
     };
-    props.onSaveExpenseData(expenseData);
+    const response = await fetch("http://localhost:8080/expense/", {
+      method: "POST",
+      body: JSON.stringify(expenseData),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (response.ok) {
+      props.onSaveExpenseData(expenseData);
+    }
+
     setTitleChange("");
     setAmountChange("");
     setDateChange("");
-  };
+  }
   return (
     <form onSubmit={submitHandler}>
       <div className="new-expense__controls">

@@ -1,0 +1,9 @@
+.transactions {
+  position: absolute;
+  margin-left: 700px;
+}
+
+.p {
+  font-weight: bold;
+  font-size: 28px;
+}

@@ -7,8 +7,8 @@ const SideBar = () => {
     <div>
       <input type="checkbox" id="check" />
       <label htmlFor="check">
-        <i className="fas fa-bars" id="btn"></i>
         <i className="fas fa-times" id="cancel"></i>
+        <i className="fas fa-bars" id="btn"></i>
       </label>
       <div className="sidebar">
         <header>
@@ -18,6 +18,11 @@ const SideBar = () => {
           <i className="fa fa-credit-card"></i>
           <span>Transactions</span>
         </Link>
+        <Link to="/income">
+          <i className="fa fa-calculator"></i>
+          <span>Income</span>
+        </Link>
+
         <Link to="/spendings">
           <i className="fa fa-archive"></i>
           <span>Spendings</span>

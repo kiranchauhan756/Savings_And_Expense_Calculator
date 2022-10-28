@@ -9,8 +9,10 @@ import DashBoard from "./components/DashBoard";
 import Savings from "./components/Savings";
 import Transactions from "./components/Transactions";
 import Spendings from "./components/Spendings";
-import Accounts from "./components/Accounts";
-import SetGoal from "./components/SetGoal";   
+import SetGoal from "./components/SetGoal";
+import Income from "./components/Income";
+import Charts from "./components/Charts";
+import Calendar from "./components/Calendar";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -40,11 +42,7 @@ function App() {
                 path="/spendings"
                 element={<Spendings />}
               ></Route>
-              <Route
-                exact="true"
-                path="/accounts"
-                element={<Accounts />}
-              ></Route>
+
               <Route
                 exact="true"
                 path="/setgoals"
@@ -54,6 +52,13 @@ function App() {
                 exact="true"
                 path="/transactions"
                 element={<Transactions />}
+              ></Route>
+              <Route exact="true" path="/income" element={<Income />}></Route>
+              <Route exact="true" path="/charts" element={<Charts />}></Route>
+              <Route
+                exact="true"
+                path="/calendar"
+                element={<Calendar />}
               ></Route>
             </Routes>
           </div>

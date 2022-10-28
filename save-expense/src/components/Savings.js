@@ -1,5 +1,7 @@
 import React from "react";
-import SideBar from "./SideBar";
+import SideBar from "./SideBar.js";
+
+import "./Savings.css";
 const Savings = () => {
   return (
     <div>
