@@ -1,59 +1,34 @@
-import React, { useRef, useState } from "react";
-
+import "./NewExpense/ExpensesFilter.css";
 import SideBar from "./SideBar";
-import "./Transactions.css";
+import React from "react";
 
 const Transactions = () => {
-  const fromExpenseDateRef = useRef("");
-  const toExpenseDateRef = useRef("");
-  const [expenses, setExpenses] = useState([]);
-
-  async function submitHandler(event) {
-    event.preventDefault();
-    const expense_details = {
-      fromDate: fromExpenseDateRef.current.value,
-      toDate: toExpenseDateRef.current.value,
-    };
-    const request = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(expense_details),
-    };
-    fetch("http://localhost:8080/expense/list", request)
-      .then((response) => response.json())
-      .then((detail) => setExpenses(detail));
-  }
+  const dropDownChangeHandler = (event) => {
+    console.log(event.target.value);
+  };
 
   return (
     <div>
-      <div>
-        <SideBar />
-      </div>
-      <div className="transactions">
-        <p className="p">This is page of Transactions</p>
-        <label>Enter From Date:</label>
-        <input type="date" required={true} ref={fromExpenseDateRef} />
-        <label>Enter To Date:</label>
-        <input type="date" required={true} ref={toExpenseDateRef} />
-        <button
-          type="button"
-          className="btn btn-primary"
-          onClick={submitHandler}
-        >
-          Submit
-        </button>
-        {expenses.length > 0 && (
-          <ul>
-            {expenses.map((expense) => (
-              <li key={expense.id}>
-                {expense.title}
-                {expense.amount}
-              </li>
-            ))}
-          </ul>
-        )}
+      <SideBar />
+
+      <div className="expenses-filter">
+        <div className="expenses-filter__control">
+          <label>Filter by year</label>
+          <select onChange={dropDownChangeHandler}>
+            <option value="1">january</option>
+            <option value="2">february</option>
+            <option value="3">march</option>
+            <option value="4">apr</option>
+            <option value="5">may</option>
+            <option value="6">june</option>
+            <option value="7">july</option>
+            <option value="8">august</option>
+            <option value="9">september</option>
+            <option value="10">october</option>
+            <option value="11">novembor</option>
+            <option value="12">december</option>
+          </select>
+        </div>
       </div>
     </div>
   );

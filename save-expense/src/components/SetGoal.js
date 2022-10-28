@@ -1,15 +1,12 @@
 import React from "react";
-import SideBar from "./SideBar";
-const SetGoals = () => {
+import SideBar from "./SideBar.js";
+
+const SetGoal = () => {
   return (
     <div>
-      {" "}
-      <div>
-        <SideBar />
-      </div>
-      ;
+      <SideBar />
     </div>
   );
 };
 
-export default SetGoals;
+export default SetGoal;

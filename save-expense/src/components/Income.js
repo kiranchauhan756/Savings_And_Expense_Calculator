@@ -1,6 +1,7 @@
-import "./NewExpense/NewExpense.css";
+import "./Savings.css";
 import SideBar from "./SideBar";
 import { useRef } from "react";
+
 const Income = () => {
   const incomeRef = useRef("");
   const sourceRef = useRef("");
@@ -9,8 +10,8 @@ const Income = () => {
     event.preventDefault();
     const incomeData = {
       income: incomeRef.current.value,
-      source_income: sourceRef.current.value,
-      income_date: dateRef.current.value,
+      sourceIncome: sourceRef.current.value,
+      incomeDate: dateRef.current.value,
     };
     const response = await fetch("http://localhost:8080/income/", {
       method: "POST",
@@ -29,18 +30,21 @@ const Income = () => {
       <div>
         <SideBar />
       </div>
-      <div>
-        <label>Source Of Income</label>
-        <input type="text" required={true} ref={sourceRef} />
-
-        <label>Income</label>
-        <input type="number" required={true} ref={incomeRef} />
-        <label>Date</label>
-        <input type="date" required={true} ref={dateRef} />
-        <div>
-          <button type="submit" className="btn btn-primary">
-            Add Income
-          </button>
+      <div className="new-expense">
+        <div className="new-expense__control">
+          <label>Source Of Income</label>
+          <input type="text" required={true} ref={sourceRef} />
+        </div>
+        <div className="new-expense__control">
+          <label>Income</label>
+          <input type="number" required={true} ref={incomeRef} />
+        </div>
+        <div className="new-expense__control">
+          <label>Date</label>
+          <input type="date" required={true} ref={dateRef} />
+        </div>
+        <div className="new-expense__actions">
+          <button type="submit">Add Income</button>
         </div>
       </div>
     </form>
