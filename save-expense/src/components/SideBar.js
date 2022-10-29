@@ -40,7 +40,7 @@ const SideBar = () => {
           <i className="fa fa-database"></i>
           <span>Charts</span>
         </Link>
-        <Link to="/calendar">
+        <Link to="/calendarApp">
           <i className="fa fa-calendar"></i>
           <span>Calendar</span>
         </Link>

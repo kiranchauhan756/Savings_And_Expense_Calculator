@@ -12,7 +12,7 @@ import Spendings from "./components/Spendings";
 import SetGoal from "./components/SetGoal";
 import Income from "./components/Income";
 import Charts from "./components/Charts";
-import Calendar from "./components/Calendar";
+import CalendarApp from "./components/CalendarApp";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -57,8 +57,8 @@ function App() {
               <Route exact="true" path="/charts" element={<Charts />}></Route>
               <Route
                 exact="true"
-                path="/calendar"
-                element={<Calendar />}
+                path="/calendarApp"
+                element={<CalendarApp />}
               ></Route>
             </Routes>
           </div>
