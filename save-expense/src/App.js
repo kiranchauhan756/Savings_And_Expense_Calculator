@@ -19,7 +19,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
   return (
     <div>
-      <div className="App">
+      <div className="./App">
         <BrowserRouter>
           <div className="content">
             <Routes>

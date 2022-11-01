@@ -1,7 +1,7 @@
 import "./Savings.css";
 import SideBar from "./SideBar";
 import { useRef } from "react";
-import React, { useState } from "react";
+import React from "react";
 
 const Income = () => {
   const incomeRef = useRef("");
@@ -46,14 +46,7 @@ const Income = () => {
           <input type="date" required={true} ref={dateRef} />
         </div>
         <div className="new-expense__actions">
-          <button
-            type="submit"
-            onChange={(event) => {
-              getSaveIncome(event.target.value);
-            }}
-          >
-            Add Income
-          </button>
+          <button type="submit">Add Income</button>
         </div>
       </div>
     </form>

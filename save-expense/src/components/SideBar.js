@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./SideBar.css";
 
 const SideBar = () => {
@@ -14,45 +14,45 @@ const SideBar = () => {
         <header>
           <i className="fa fa-rupee-sign"> &nbsp;&nbsp; Bachat💰</i>
         </header>
-        <Link to="/transactions">
+        <NavLink to="/transactions">
           <i className="fa fa-credit-card"></i>
           <span>Transactions</span>
-        </Link>
-        <Link to="/income">
+        </NavLink>
+        <NavLink to="/income" activestyle={{ color: "red" }}>
           <i className="fa fa-calculator"></i>
           <span>Income</span>
-        </Link>
+        </NavLink>
 
-        <Link to="/spendings">
+        <NavLink to="/spendings" activestyle={{ color: "red" }}>
           <i className="fa fa-archive"></i>
           <span>Spendings</span>
-        </Link>
+        </NavLink>
 
-        <Link to="/savings">
+        <NavLink to="/savings" activestyle={{ color: "red" }}>
           <i className="fa fa-briefcase" />
           <span>Savings</span>
-        </Link>
-        <Link to="/setgoals">
+        </NavLink>
+        <NavLink to="/setgoals" activestyle={{ color: "red" }}>
           <i className="fas fa-bullseye"></i>
           <span>Set Goals</span>
-        </Link>
-        <Link to="/charts">
+        </NavLink>
+        <NavLink to="/charts" activestyle={{ color: "red" }}>
           <i className="fa fa-database"></i>
           <span>Charts</span>
-        </Link>
-        <Link to="/calendarApp">
+        </NavLink>
+        <NavLink to="/calendarApp" activestyle={{ color: "red" }}>
           <i className="fa fa-calendar"></i>
           <span>Calendar</span>
-        </Link>
+        </NavLink>
 
-        <Link to="/contactUs">
+        <NavLink to="/contactUs" activestyle={{ color: "red" }}>
           <i className="far fa-envelope"></i>
           <span>Contact</span>
-        </Link>
-        <Link to="/login">
+        </NavLink>
+        <NavLink to="/login" activestyle={{ color: "red" }}>
           <i className="fa fa-arrow-circle-left"></i>
           <span>Log Out</span>
-        </Link>
+        </NavLink>
       </div>
     </div>
   );

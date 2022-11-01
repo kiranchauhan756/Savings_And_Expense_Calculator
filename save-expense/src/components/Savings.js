@@ -1,6 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
-import SideBar from "./SideBar.js";
-import axios from "axios";
+import React, { useRef, useState } from "react";
+import SideBar from "./SideBar";
 
 import "./Savings.css";
 const Savings = () => {
@@ -9,24 +8,6 @@ const Savings = () => {
   const [expenses, setExpenses] = useState([]);
   const [income, setIncome] = useState([]);
 
-  const fetchData = () => {
-    const incomeApi = "http://localhost:8080/income/listIncome";
-    const expenseApi = "http://localhost:8080/income/listIncome";
-
-    const incomeData = axios.get(incomeApi);
-    const expenseData = axios.get(expenseApi);
-    axios.all([incomeData, expenseData]).then(
-      axios.spread((...allData) => {
-        const allIncomeData = allData[0];
-        const allExpenseData = allData[1];
-        console.log(allIncomeData);
-        console.log(allExpenseData);
-      })
-    );
-  };
-  useEffect(() => {
-    fetchData();
-  }, []);
   async function submitHandler(event) {
     event.preventDefault();
     const expense_details = {

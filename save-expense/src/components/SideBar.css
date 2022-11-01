@@ -117,7 +117,7 @@ label #cancel {
     background: inherit;
   }
   .sidebar a:hover span {
-    opacity: 1;
+    opacity: 6;
     visibility: visible;
   }
 }
