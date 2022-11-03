@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "react-bootstrap";
-import SideBar from "./SideBar";
+import SideBar from "../SideBar/SideBar";
 const ContactUs = () => {
   const [formStatus, setFormStatus] = React.useState("Send Message");
   const onSubmit = (e) => {

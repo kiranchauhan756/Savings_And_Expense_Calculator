@@ -1,20 +1,19 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Login from "./components/Login";
-import SignUp from "./components/SignUp";
-import ContactUs from "./components/ContactUs";
-import DashBoard from "./components/DashBoard";
-import Savings from "./components/Savings";
+import Login from "./components/Login/Login";
+import SignUp from "./components/Login/SignUp";
+import ContactUs from "./components/ContactUs/ContactUs";
+import DashBoard from "./components/Login/DashBoard";
+import Savings from "./components/Savings/Savings";
 import Transactions from "./components/Transaction/Transactions";
 import Spendings from "./components/Spendings/Spendings";
-import SetGoal from "./components/SetGoal";
-import Income from "./components/Income";
-import Charts from "./components/Charts";
-import CalendarApp from "./components/CalendarApp";
-import SideBar from "./components/SideBar";
+import SetGoal from "./components/SetGoal/SetGoal";
+import Income from "./components/Income/Income";
+import Charts from "./components/Charts/Charts";
+import CalendarApp from "./components/Calendar/CalendarApp";
+import SideBar from "./components/SideBar/SideBar";
 import "bootstrap/dist/css/bootstrap.min.css";
-
 function App() {
   return (
     <div>

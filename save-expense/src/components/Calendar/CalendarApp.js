@@ -1,6 +1,6 @@
 import "react-calendar/dist/Calendar.css";
 import Calendar from "react-calendar";
-import SideBar from "./SideBar";
+import SideBar from "../SideBar/SideBar";
 import { useState } from "react";
 
 const CalendarApp = () => {

@@ -1,11 +1,11 @@
 import React from "react";
-import SideBar from "./SideBar";
+import SideBar from "../SideBar/SideBar";
 
 const DashBoard = () => {
   return (
     <div>
       <div id="DashBoard">
-        <SideBar pageWrapId={"page-wrap"} outerContainerId={"DashBoard"} />
+        <SideBar pageWrapId={"page-wrap"} outerContainerId={"spendings"} />
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
-import "./Savings.css";
-import SideBar from "./SideBar";
+import "./Income.css";
+import SideBar from "../SideBar/SideBar";
 import { useRef } from "react";
 import React from "react";
 

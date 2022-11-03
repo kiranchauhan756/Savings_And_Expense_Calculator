@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import SideBar from "./SideBar";
+import SideBar from "../SideBar/SideBar";
 
 import "./Savings.css";
 const Savings = () => {

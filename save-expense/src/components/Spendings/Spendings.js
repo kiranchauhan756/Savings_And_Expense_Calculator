@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import SideBar from "../SideBar.js";
+import SideBar from "../SideBar/SideBar.js";
 import Expenses from "./Expenses/Expenses.js";
 
 import NewExpense from "./NewExpense/NewExpense.js";

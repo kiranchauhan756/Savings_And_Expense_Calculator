@@ -1,5 +1,5 @@
 import React from "react";
-import SideBar from "./SideBar.js";
+import SideBar from "../SideBar/SideBar.js";
 
 const SetGoal = () => {
   return (
