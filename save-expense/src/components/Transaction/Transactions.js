@@ -1,36 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import SideBar from "../SideBar";
-
-import DateRangePicker from "react-bootstrap-daterangepicker";
-import "bootstrap/dist/css/bootstrap.css";
-import "bootstrap-daterangepicker/daterangepicker.css";
-import moment from "moment";
+import "./Transactions.css";
 
 const Transactions = () => {
-  const [fromDateInput, setfromDateInput] = useState(new Date());
-  const [toDateInput, setToDateInput] = useState(new Date());
+  const fromExpenseDateRef = useRef("");
+  const toExpenseDateRef = useRef("");
   const [expenses, setExpenses] = useState([]);
   const [income, setIncome] = useState([]);
   const [totalExpense, setTotalExpense] = useState(0);
   const [totalIncome, setTotalIncome] = useState(0);
 
-  const range = {
-    Today: [moment(), moment()],
-  };
-
-  const handleEvent = (event, picker) => {
-    setfromDateInput(picker.startDate._d.toISOString());
-    setToDateInput(picker.endDate._d.toISOString());
-  };
-
   async function submitHandler(event) {
     event.preventDefault();
 
     const expense_details = {
-      fromDate: fromDateInput,
-      toDate: toDateInput,
+      fromDate: fromExpenseDateRef.current.value,
+      toDate: toExpenseDateRef.current.value,
     };
-
     const request = {
       method: "POST",
       headers: {
@@ -60,28 +46,28 @@ const Transactions = () => {
         }
       });
   }
+  ///////////////////////////////////////////////////////////////
+
   return (
     <div>
-      <SideBar />
-
-      <div style={{ marginLeft: "680px", marginTop: "50px" }}>
-        <h4>
-          Select Your Date Range: &nbsp;&nbsp;
-          <i className="fa fa-calendar"></i>
-        </h4>
-        <DateRangePicker
-          ranges={range}
-          alwaysShowCalendars={false}
-          onEvent={handleEvent}
-        >
-          <button>
-            {moment(fromDateInput).format("LL")} to{" "}
-            {moment(toDateInput).format("LL")}
+      <div>
+        <SideBar />
+      </div>
+      <div className="new-expense">
+        <div className="new-expense__control">
+          <label>Enter From Date:</label>
+          <input type="date" required={true} ref={fromExpenseDateRef} />
+        </div>
+        <div className="new-expense__control">
+          <label>Enter To Date:</label>
+          <input type="date" required={true} ref={toExpenseDateRef} />
+        </div>
+        <div className="new-expense__actions">
+          <button type="submit" onClick={submitHandler}>
+            Submit
           </button>
-        </DateRangePicker>
-        <button onClick={submitHandler}>submit</button>
-
-        <div>
+        </div>
+        <div className="fetch-details">
           {expenses.length > 0 && (
             <ul>
               {expenses.map((expense) => (
