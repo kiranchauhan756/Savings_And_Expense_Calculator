@@ -1,4 +1,4 @@
-package com.savings.bachat.entity;
+package com.savings.bachat.request;
 
 import java.util.Date;
 

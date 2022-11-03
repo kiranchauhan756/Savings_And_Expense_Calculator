@@ -10,6 +10,7 @@ const Savings = () => {
 
   async function submitHandler(event) {
     event.preventDefault();
+
     const expense_details = {
       fromDate: fromExpenseDateRef.current.value,
       toDate: toExpenseDateRef.current.value,

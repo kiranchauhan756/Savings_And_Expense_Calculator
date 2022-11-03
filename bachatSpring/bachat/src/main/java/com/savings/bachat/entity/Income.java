@@ -5,12 +5,16 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import com.savings.bachat.enums.IncomeSource;
 
 @Entity
 @Table (name ="INCOME_DETAILS")
@@ -27,8 +31,9 @@ public class Income {
 	@Temporal(TemporalType.DATE)
 	private Date incomeDate;
 	
+	@Enumerated(EnumType.STRING)
 	@Column(name="SOURCE",nullable=false)
-	private String sourceIncome;
+	private IncomeSource sourceIncome;
 	
 
 	public Long getId() {
@@ -46,7 +51,7 @@ public class Income {
 	public void setIncome(BigDecimal income) {
 		this.income = income;
 	}
-	public String getSourceIncome() {
+	public IncomeSource getSourceIncome() {
 		return sourceIncome;
 	}
 	public Date getIncomeDate() {
@@ -57,7 +62,7 @@ public class Income {
 		this.incomeDate = incomeDate;
 	}
 
-	public void setSourceIncome(String sourceIncome) {
+	public void setSourceIncome(IncomeSource sourceIncome) {
 		this.sourceIncome = sourceIncome;
 	}
 

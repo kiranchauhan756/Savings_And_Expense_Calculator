@@ -1,30 +1,18 @@
-import React, { useState } from "react";
+import React, { useRef } from "react";
 
 import "./ExpenseForm.css";
 
 const ExpenseForm = (props) => {
-  const [titleChange, setTitleChange] = useState("");
-  const [amountChange, setAmountChange] = useState("");
-  const [dateChange, setDateChange] = useState("");
+  const incomeRef = useRef("");
+  const categoryRef = useRef("");
+  const expenseDateRef = useRef("");
 
-  const titleChangeHandler = (event) => {
-    setTitleChange(event.target.value);
-  };
-  const amountChangeHandler = (event) => {
-    setAmountChange(event.target.value);
-  };
-  const dateChangeHandler = (event) => {
-    setDateChange(event.target.value);
-  };
-  //--------------for dbms--------------//
-
-  //-------------------------------///
   async function submitHandler(event) {
     event.preventDefault();
     const expenseData = {
-      title: titleChange,
-      amount: amountChange,
-      expenseDate: new Date(dateChange),
+      category: categoryRef.current.value,
+      amount: incomeRef.current.value,
+      expenseDate: expenseDateRef.current.value,
     };
     const response = await fetch("http://localhost:8080/expense/", {
       method: "POST",
@@ -36,31 +24,24 @@ const ExpenseForm = (props) => {
     if (response.ok) {
       props.onSaveExpenseData(expenseData);
     }
-
-    setTitleChange("");
-    setAmountChange("");
-    setDateChange("");
   }
   return (
     <form onSubmit={submitHandler}>
       <div className="new-expense__controls">
         <div className="new-expense__control">
-          <label>Title</label>
-          <input
-            type="text"
-            value={titleChange}
-            required={true}
-            onChange={titleChangeHandler}
-          />
+          <label>Category</label>
+          <select ref={categoryRef} required={true}>
+            <option value="CLOTHES">Clothes</option>
+            <option value="FOOD">Food</option>
+            <option value="FUEL">Fuel</option>
+            <option value="SHOPPING">Shopping</option>
+            <option value="TRAVEL">Travel</option>
+            <option value="OTHERS">Others</option>
+          </select>
         </div>
         <div className="new-expense__control">
           <label>Amount</label>
-          <input
-            type="number"
-            value={amountChange}
-            required={true}
-            onChange={amountChangeHandler}
-          />
+          <input type="number" ref={incomeRef} required={true} />
         </div>
         <div className="new-expense__control">
           <label>Date</label>
@@ -68,9 +49,8 @@ const ExpenseForm = (props) => {
             type="date"
             min="2019-01-01"
             max="2022-12-31"
-            value={dateChange}
+            ref={expenseDateRef}
             required={true}
-            onChange={dateChangeHandler}
           />
         </div>
       </div>

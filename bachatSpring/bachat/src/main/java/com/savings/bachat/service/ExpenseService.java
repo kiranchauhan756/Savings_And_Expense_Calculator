@@ -4,9 +4,9 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.savings.bachat.entity.DateRangeSearchCriteria;
 import com.savings.bachat.entity.Expenses;
 import com.savings.bachat.repository.ExpenseRepository;
+import com.savings.bachat.request.DateRangeSearchCriteria;
 
 @Service
 public class ExpenseService implements ExpenseServiceI {

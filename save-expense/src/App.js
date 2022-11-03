@@ -7,7 +7,7 @@ import SignUp from "./components/SignUp";
 import ContactUs from "./components/ContactUs";
 import DashBoard from "./components/DashBoard";
 import Savings from "./components/Savings";
-import Transactions from "./components/Transactions";
+import Transactions from "./components/Transaction/Transactions";
 import Spendings from "./components/Spendings";
 import SetGoal from "./components/SetGoal";
 import Income from "./components/Income";
@@ -42,6 +42,7 @@ function App() {
                 path="/spendings"
                 element={<Spendings />}
               ></Route>
+              <Route exact="true" path="//" element={<Spendings />}></Route>
 
               <Route
                 exact="true"

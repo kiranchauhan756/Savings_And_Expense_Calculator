@@ -12,5 +12,6 @@ import com.savings.bachat.entity.Expenses;
 public interface ExpenseRepository extends JpaRepository<Expenses, String> {
 
 	List<Expenses> findAllByExpenseDateGreaterThanEqualAndExpenseDateLessThanEqual(Date fromDate, Date toDate);
+    
 
 }

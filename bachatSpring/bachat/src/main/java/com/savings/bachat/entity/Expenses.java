@@ -5,6 +5,8 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -14,6 +16,8 @@ import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import com.savings.bachat.enums.ExpenseCategory;
+
 @Entity
 @Table(name = "EXPENSE_DETAILS")
 public class Expenses {
@@ -22,8 +26,9 @@ public class Expenses {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-	@Column(name = "TITLE", nullable = false)
-	private String title;
+	@Enumerated(EnumType.STRING)
+	@Column(name = "CATEGORY", nullable = false)
+	private ExpenseCategory category;
 
 	@Column(name = "AMOUNT", nullable = false, precision = 8, scale = 2)
 	private BigDecimal amount;
@@ -31,7 +36,7 @@ public class Expenses {
 	@Column(name = "EXPENSE_DATE", nullable = false)
 	@Temporal(TemporalType.DATE)
 	private Date expenseDate;
-	
+
 	@Column(name = "timestamp")
 	@CreationTimestamp
 	private Date timestamp;
@@ -44,28 +49,29 @@ public class Expenses {
 		this.id = id;
 	}
 
-	public String getTitle() {
-		return title;
+	public ExpenseCategory getCategory() {
+		return category;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
+	public void setCategory(ExpenseCategory category) {
+		this.category = category;
 	}
 
 	public BigDecimal getAmount() {
 		return amount;
-	}
+	}	
 
-	public void setAmount(BigDecimal amount) {
-		this.amount = amount;
-	}
-
+	
 	public Date getExpenseDate() {
 		return expenseDate;
 	}
 
-	public void setExpenseDate(Date date) {
-		this.expenseDate = date;
+	public void setExpenseDate(Date expenseDate) {
+		this.expenseDate = expenseDate;
+	}
+
+	public void setAmount(BigDecimal amount) {
+		this.amount = amount;
 	}
 
 	public Date getTimestamp() {
@@ -75,5 +81,5 @@ public class Expenses {
 	public void setTimestamp(Date timestamp) {
 		this.timestamp = timestamp;
 	}
-	
+
 }

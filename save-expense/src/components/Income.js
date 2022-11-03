@@ -35,7 +35,14 @@ const Income = () => {
       <div className="new-expense">
         <div className="new-expense__control">
           <label>Source Of Income</label>
-          <input type="text" required={true} ref={sourceRef} />
+          <select required={true} ref={sourceRef}>
+            <option value="BUSINESS">Business Income</option>
+            <option value="SALARY">Salary Income</option>
+            <option value="INTEREST">Interest Income</option>
+            <option value="RENTAL">Rental Income</option>
+            <option value="STOCK">Dividend/Capital Gains Income</option>
+            <option value="OTHERS">Others</option>
+          </select>
         </div>
         <div className="new-expense__control">
           <label>Income</label>
