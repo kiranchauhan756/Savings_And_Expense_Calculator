@@ -23,11 +23,7 @@ const SideBar = () => {
           <span>Income</span>
         </NavLink>
 
-        <NavLink
-          to="/spendings"
-          activestyle={{ color: "red" }}
-          activeclassname="selected"
-        >
+        <NavLink to="/spendings" activestyle={{ color: "red" }}>
           <i className="fa fa-archive"></i>
           <span>Spendings</span>
         </NavLink>

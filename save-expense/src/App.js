@@ -1,19 +1,18 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Home from "./components/Home";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import ContactUs from "./components/ContactUs";
 import DashBoard from "./components/DashBoard";
 import Savings from "./components/Savings";
 import Transactions from "./components/Transaction/Transactions";
-import Spendings from "./components/Spendings";
+import Spendings from "./components/Spendings/Spendings";
 import SetGoal from "./components/SetGoal";
 import Income from "./components/Income";
 import Charts from "./components/Charts";
 import CalendarApp from "./components/CalendarApp";
-
+import SideBar from "./components/SideBar";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
@@ -23,8 +22,7 @@ function App() {
         <BrowserRouter>
           <div className="content">
             <Routes>
-              <Route exact="true" path="/" element={<Home />}></Route>
-              <Route exact="true" path="/login" element={<Login />}></Route>
+              <Route exact="true" path="/" element={<Login />}></Route>
               <Route
                 exact="true"
                 path="/contactUs"
@@ -42,6 +40,7 @@ function App() {
                 path="/spendings"
                 element={<Spendings />}
               ></Route>
+              <Route exact="true" path="/sidebar" element={<SideBar />}></Route>
               <Route exact="true" path="//" element={<Spendings />}></Route>
 
               <Route

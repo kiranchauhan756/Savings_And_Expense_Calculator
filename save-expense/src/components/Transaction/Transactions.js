@@ -46,59 +46,70 @@ const Transactions = () => {
         }
       });
   }
-  ///////////////////////////////////////////////////////////////
 
   return (
     <div>
       <div>
         <SideBar />
-      </div>
-      <div className="new-expense">
-        <div className="new-expense__control">
-          <label>Enter From Date:</label>
-          <input type="date" required={true} ref={fromExpenseDateRef} />
-        </div>
-        <div className="new-expense__control">
-          <label>Enter To Date:</label>
-          <input type="date" required={true} ref={toExpenseDateRef} />
-        </div>
-        <div className="new-expense__actions">
-          <button type="submit" onClick={submitHandler}>
-            Submit
-          </button>
-        </div>
-        <div className="fetch-details">
-          {expenses.length > 0 && (
-            <ul>
-              {expenses.map((expense) => (
-                <li key={expense.category}>
-                  {expense.category}
-                  {expense.groupedSum}
-                </li>
-              ))}
-            </ul>
-          )}
-          {totalExpense > 0 && <div>Total Expense is ::{totalExpense}</div>}
-          {income.length > 0 && (
-            <ul>
-              {income.map((income) => (
-                <li key={income.sourceIncome}>
-                  {income.sourceIncome}
-                  {income.groupedSum}
-                </li>
-              ))}
-            </ul>
-          )}
-          {totalIncome > 0 && <div>Total Income is ::{totalIncome}</div>}
+        <div className="new-expense">
+          <div className="new-expense__control">
+            <label>Enter From Date:</label>
+            <input type="date" required={true} ref={fromExpenseDateRef} />
+          </div>
+          <div className="new-expense__control">
+            <label>Enter To Date:</label>
+            <input type="date" required={true} ref={toExpenseDateRef} />
+          </div>
+          <div className="new-expense__actions">
+            <button type="submit" onClick={submitHandler}>
+              Submit
+            </button>
+          </div>
 
-          {totalIncome > totalExpense && (
-            <div>You have now ::💸{totalIncome - totalExpense}</div>
-          )}
-          {totalIncome < totalExpense && (
-            <div style={{ color: "red" }}>
-              You are in loan of😢{totalIncome - totalExpense}
+          <div className="show">
+            <div className="sourceIncome">
+              {income.map((income, index) => (
+                <p key={index}>
+                  {income.sourceIncome}
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  {income.groupedSum}
+                </p>
+              ))}
             </div>
-          )}
+            <div className="separate">
+              {
+                "-------------------------------------------------------------------------------------------------------------------"
+              }
+            </div>
+            <div className="sourceExpense">
+              {expenses.map((expense, index) => (
+                <p key={index}>
+                  {expense.category}
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  {expense.groupedSum}
+                </p>
+              ))}
+            </div>
+
+            {totalIncome > 0 && <div>Total Income is ::{totalIncome}</div>}
+            {totalExpense > 0 && <div>Total Expense is ::{totalExpense}</div>}
+            <div className="separate">
+              {
+                "-------------------------------------------------------------------------------------------------------------------"
+              }
+            </div>
+
+            {totalIncome > totalExpense && (
+              <div>You have now ::💸{totalIncome - totalExpense}</div>
+            )}
+            {totalIncome < totalExpense && (
+              <div style={{ color: "red" }}>
+                😢😢😢{totalIncome - totalExpense}
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>
