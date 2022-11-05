@@ -2,7 +2,8 @@ import "./Income.css";
 import SideBar from "../SideBar/SideBar";
 import { useRef } from "react";
 import React from "react";
-
+import Popup from "reactjs-popup";
+import "reactjs-popup/dist/index.css";
 const Income = () => {
   const incomeRef = useRef("");
   const sourceRef = useRef("");
@@ -24,9 +25,11 @@ const Income = () => {
     });
     if (response.ok) {
       console.log("ok");
+
       return response.json();
     }
   }
+
   return (
     <form onSubmit={submitHandler}>
       <div>
@@ -53,7 +56,11 @@ const Income = () => {
           <input type="date" required={true} ref={dateRef} />
         </div>
         <div className="new-expense__actions">
-          <button type="submit">Add Income</button>
+          <Popup trigger={<button type="submit"> Add Income</button>}>
+            <div style={{ color: "green", fontWeight: "bold" }}>
+              Added Successfully💰
+            </div>
+          </Popup>
         </div>
       </div>
     </form>

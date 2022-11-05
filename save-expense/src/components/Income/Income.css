@@ -11,6 +11,9 @@
   margin-bottom: 0.5rem;
   display: block;
   font-size: 20px;
+  color: black solid 2px;
+  padding: 2px;
+  margin: 3px;
 }
 
 .new-expense__control input {
@@ -30,6 +33,10 @@
   border: 1px solid #ccc;
   width: 20rem;
   max-width: 100%;
+  color: darkred;
+  text-align: center;
+  font-weight: bold;
+  font-style: italic;
 }
 
 .new-expense__actions {

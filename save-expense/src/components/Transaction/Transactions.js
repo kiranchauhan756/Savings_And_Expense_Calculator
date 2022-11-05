@@ -7,8 +7,8 @@ const Transactions = () => {
   const toExpenseDateRef = useRef("");
   const [expenses, setExpenses] = useState([]);
   const [income, setIncome] = useState([]);
-  const [totalExpense, setTotalExpense] = useState(0);
-  const [totalIncome, setTotalIncome] = useState(0);
+  const [totalExpense, setTotalExpense] = useState(null);
+  const [totalIncome, setTotalIncome] = useState(null);
 
   async function submitHandler(event) {
     event.preventDefault();
@@ -67,48 +67,88 @@ const Transactions = () => {
           </div>
 
           <div className="show">
-            <div className="sourceIncome">
-              {income.map((income, index) => (
-                <p key={index}>
-                  {income.sourceIncome}
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  {income.groupedSum}
-                </p>
-              ))}
-            </div>
-            <div className="separate">
-              {
-                "-------------------------------------------------------------------------------------------------------------------"
-              }
-            </div>
-            <div className="sourceExpense">
-              {expenses.map((expense, index) => (
-                <p key={index}>
-                  {expense.category}
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  {expense.groupedSum}
-                </p>
-              ))}
-            </div>
-
-            {totalIncome > 0 && <div>Total Income is ::{totalIncome}</div>}
-            {totalExpense > 0 && <div>Total Expense is ::{totalExpense}</div>}
-            <div className="separate">
-              {
-                "-------------------------------------------------------------------------------------------------------------------"
-              }
-            </div>
-
-            {totalIncome > totalExpense && (
-              <div>You have now ::💸{totalIncome - totalExpense}</div>
-            )}
-            {totalIncome < totalExpense && (
-              <div style={{ color: "red" }}>
-                😢😢😢{totalIncome - totalExpense}
-              </div>
-            )}
+            <table className="content-table">
+              <tbody>
+                {income.map((income, index) => (
+                  <tr key={index} className="sourceIncome">
+                    <td className="td-left">{income.sourceIncome}</td>
+                    <td className="td-right"> &#x20b9; {income.groupedSum}</td>
+                  </tr>
+                ))}
+                {expenses.map((expense, index) => (
+                  <tr key={index} className="sourceExpense">
+                    <td className="td-left">{expense.category}</td>
+                    <td className="td-right"> &#x20b9; {expense.groupedSum}</td>
+                  </tr>
+                ))}
+                <tr>
+                  <td colSpan={2}>
+                    {totalIncome > 0 && (
+                      <div style={{ color: "green", fontWeight: "bold" }}>
+                        Total Income is :: &#x20b9; {totalIncome}
+                      </div>
+                    )}
+                  </td>
+                </tr>
+                <tr>
+                  <td colSpan={2}>
+                    {totalExpense > 0 && (
+                      <div
+                        style={{
+                          color: "red",
+                          fontWeight: "bold",
+                          background: "lightblue",
+                        }}
+                      >
+                        Total Expense is :: &#x20b9; {totalExpense}
+                      </div>
+                    )}
+                  </td>
+                </tr>
+                <tr>
+                  <td colSpan={2}>
+                    {totalIncome > totalExpense && (
+                      <div
+                        style={{
+                          color: "blue",
+                          background: "lightgrey",
+                          fontWeight: "bold",
+                        }}
+                      >
+                        You have now ::💸 &#x20b9; {totalIncome - totalExpense}
+                      </div>
+                    )}
+                  </td>
+                </tr>
+                <tr>
+                  <td colSpan={2}>
+                    {totalIncome < totalExpense && (
+                      <div style={{ color: "red", background: "coral" }}>
+                        😢😢😢{totalIncome - totalExpense}
+                      </div>
+                    )}
+                  </td>
+                </tr>
+                <tr>
+                  <td colSpan={2}>
+                    {totalIncome === 0 && totalExpense === 0 && (
+                      <div
+                        style={{
+                          color: "red",
+                          fontWeight: "bold",
+                          background: "white",
+                          fontSize: "large",
+                          fontStyle: "italic",
+                        }}
+                      >
+                        There is no Income or Expense transaction during the
+                        selected period. Please select any other period.
+                      </div>
+                    )}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
