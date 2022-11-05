@@ -49,7 +49,7 @@ const SideBar = () => {
           <i className="far fa-envelope"></i>
           <span>Contact</span>
         </NavLink>
-        <NavLink to="/login" activestyle={{ color: "red" }}>
+        <NavLink to="/" activestyle={{ color: "red" }}>
           <i className="fa fa-arrow-circle-left"></i>
           <span>Log Out</span>
         </NavLink>

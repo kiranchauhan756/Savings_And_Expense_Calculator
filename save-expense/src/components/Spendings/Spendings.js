@@ -15,9 +15,8 @@ const Spendings = () => {
 
   return (
     <div>
-      <div>
-        <SideBar />
-      </div>
+      <SideBar />
+
       <NewExpense onAddExpense={addExpenseHandler} />
       <Expenses items={expenses} />
     </div>

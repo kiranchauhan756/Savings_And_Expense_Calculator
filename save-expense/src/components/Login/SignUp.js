@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
-
+import "./Login.css";
 const SignUp = () => {
   const emailRef = useRef("");
   const firstNameRef = useRef("");
@@ -10,6 +10,10 @@ const SignUp = () => {
   const confirmPasswordRef = useRef("");
 
   const navigate = useNavigate();
+
+  const handleBack = () => {
+    navigate("/");
+  };
 
   async function submitSignUp(event) {
     event.preventDefault();
@@ -35,8 +39,8 @@ const SignUp = () => {
     }
   }
   return (
-    <section className="vh-50 bg-image">
-      <div className="mask d-flex align-items-center h-100 gradient-custom-3">
+    <section className="vh-100 bg-image gradient-custom-3">
+      <div className="mask d-flex align-items-center h-100 gradient-custom-4">
         <div className="container h-100">
           <div className="row d-flex justify-content-center align-items-center h-100">
             <div className="col-12 col-md-9 col-lg-7 col-xl-6">
@@ -127,6 +131,14 @@ const SignUp = () => {
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;&nbsp;&nbsp;&nbsp;``
                     <button className="btn btn-primary">Submit</button>
+                    &nbsp;&nbsp;
+                    <button
+                      type="button"
+                      className="btn btn-primary"
+                      onClick={handleBack}
+                    >
+                      Back
+                    </button>
                   </form>
                 </div>
               </div>

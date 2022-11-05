@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import "./Login.css";
 const Login = () => {
   const emailRef = useRef("");
   const passwordRef = useRef("");
@@ -33,15 +33,22 @@ const Login = () => {
   }
 
   return (
-    <section className="vh-50 bg-image">
-      <div className="mask d-flex align-items-center h-100 gradient-custom-3">
-        <div className="container h-100">
-          <div className="row d-flex justify-content-center align-items-center h-100">
-            <div className="col-12 col-md-9 col-lg-7 col-xl-6">
-              <div className="card">
-                <div className="card-body p-5">
+    <div
+      className="vh-100 bg-image   gradient-custom-3"
+      // style={{
+      //   backgroundImage: `url(
+      //     "https://images.unsplash.com/photo-1631631480669-535cc43f2327?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YmFja2dyb3VuZCUyMGltYWdlfGVufDB8fDB8fA%3D%3D&w=1000&q=80"
+      //   )`,
+      // }}
+    >
+      <div className="mask d-flex align-items-center h-100 gradient-custom-4">
+        <div className="container h-90 ">
+          <div className="row d-flex justify-content-center align-items-center h-80">
+            <div className="col-12 col-md-14 col-lg-7 col-xl-6">
+              <div className="card bg-light  ">
+                <div className="card-body p-5 ">
                   <h2 className="text-uppercase text-center mb-5">
-                    Login to Application
+                    Login to Bachat <i className="fa fa-rupee-sign"> </i>💰💰
                   </h2>
                   <div
                     className="error"
@@ -109,7 +116,7 @@ const Login = () => {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

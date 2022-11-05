@@ -36,7 +36,7 @@ const Savings = () => {
       <div>
         <SideBar />
       </div>
-      <div className="new-expense">
+      <div className="new-expense ">
         <div className="new-expense__control">
           <label>Enter From Date:</label>
           <input type="date" required={true} ref={fromExpenseDateRef} />

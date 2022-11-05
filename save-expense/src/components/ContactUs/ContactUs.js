@@ -17,10 +17,8 @@ const ContactUs = () => {
 
   return (
     <div>
-      <div>
-        <SideBar />
-      </div>
-      ;
+      <SideBar />
+
       <div className="container mt-5">
         <div className="row d-flex justify-content-center align-items-center h-100">
           <div className="col-12 col-md-9 col-lg-7 col-xl-6">
