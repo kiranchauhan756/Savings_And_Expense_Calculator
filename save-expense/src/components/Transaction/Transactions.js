@@ -123,7 +123,7 @@ const Transactions = () => {
                 <tr>
                   <td colSpan={2}>
                     {totalIncome < totalExpense && (
-                      <div style={{ color: "red", background: "coral" }}>
+                      <div style={{ color: "red", background: "lightyellow" }}>
                         😢😢😢{totalIncome - totalExpense}
                       </div>
                     )}

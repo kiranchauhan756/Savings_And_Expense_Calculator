@@ -37,7 +37,7 @@
 }
 
 .new-expense {
-  background-color: #a892ee;
+  background-color: cadetblue;
   padding: 1rem;
   margin: 2rem auto;
   width: 50rem;
@@ -87,7 +87,7 @@
 .sourceExpense {
   font-weight: bold;
   color: red;
-  background-color: rgb(248, 237, 239);
+  background-color: rgb(218, 210, 211);
   justify-items: center;
 }
 

@@ -35,11 +35,10 @@ const Login = () => {
   return (
     <div
       className="vh-100 bg-image   gradient-custom-3"
-      // style={{
-      //   backgroundImage: `url(
-      //     "https://images.unsplash.com/photo-1631631480669-535cc43f2327?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YmFja2dyb3VuZCUyMGltYWdlfGVufDB8fDB8fA%3D%3D&w=1000&q=80"
-      //   )`,
-      // }}
+      style={{
+        backgroundImage: `url(
+          "./tagline.png")`,
+      }}
     >
       <div className="mask d-flex align-items-center h-100 gradient-custom-4">
         <div className="container h-90 ">

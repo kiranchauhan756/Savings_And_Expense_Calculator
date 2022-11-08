@@ -13,6 +13,7 @@ import Income from "./components/Income/Income";
 import Charts from "./components/Charts/Charts";
 import CalendarApp from "./components/Calendar/CalendarApp";
 import SideBar from "./components/SideBar/SideBar";
+import Home from "./Home";
 import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
   return (
@@ -21,7 +22,8 @@ function App() {
         <BrowserRouter>
           <div className="content">
             <Routes>
-              <Route exact="true" path="/" element={<Login />}></Route>
+              <Route exact="true" path="/" element={<Home />}></Route>
+              <Route exact="true" path="/login" element={<Login />}></Route>
               <Route
                 exact="true"
                 path="/contactUs"
