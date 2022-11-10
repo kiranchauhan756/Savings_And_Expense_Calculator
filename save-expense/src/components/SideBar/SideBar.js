@@ -15,42 +15,38 @@ const SideBar = () => {
           <i className="fa fa-rupee-sign"> &nbsp;&nbsp; Bachat💰</i>
         </header>
         <NavLink to="/transactions">
-          <i className="fa fa-credit-card"></i>
+          <i className="fa fa-credit-card" style={{ color: "green" }}></i>
           <span>Transactions</span>
         </NavLink>
-        <NavLink to="/income" activestyle={{ color: "red" }}>
-          <i className="fa fa-calculator"></i>
+        <NavLink to="/income">
+          <i className="fa fa-calculator" style={{ color: "green" }}></i>
           <span>Income</span>
         </NavLink>
 
-        <NavLink to="/spendings" activestyle={{ color: "red" }}>
-          <i className="fa fa-archive"></i>
+        <NavLink to="/spendings">
+          <i className="fa fa-archive" style={{ color: "green" }}></i>
           <span>Spendings</span>
         </NavLink>
 
-        <NavLink to="/savings" activestyle={{ color: "red" }}>
-          <i className="fa fa-briefcase" />
+        <NavLink to="/savings">
+          <i className="fa fa-briefcase" style={{ color: "green" }} />
           <span>Savings</span>
         </NavLink>
-        <NavLink to="/setgoals" activestyle={{ color: "red" }}>
-          <i className="fas fa-bullseye"></i>
+        <NavLink to="/setgoals">
+          <i className="fas fa-bullseye" style={{ color: "green" }}></i>
           <span>Set Goals</span>
         </NavLink>
-        <NavLink to="/charts" activestyle={{ color: "red" }}>
-          <i className="fa fa-database"></i>
+        <NavLink to="/charts">
+          <i className="fa fa-database" style={{ color: "green" }}></i>
           <span>Charts</span>
         </NavLink>
-        <NavLink to="/calendarApp" activestyle={{ color: "red" }}>
-          <i className="fa fa-calendar"></i>
+        <NavLink to="/calendarApp">
+          <i className="fa fa-calendar" style={{ color: "green" }}></i>
           <span>Calendar</span>
         </NavLink>
 
-        <NavLink to="/contactUs" activestyle={{ color: "red" }}>
-          <i className="far fa-envelope"></i>
-          <span>Contact</span>
-        </NavLink>
-        <NavLink to="/" activestyle={{ color: "red" }}>
-          <i className="fa fa-arrow-circle-left"></i>
+        <NavLink to="/">
+          <i className="fa fa-arrow-circle-left" style={{ color: "green" }}></i>
           <span>Log Out</span>
         </NavLink>
       </div>

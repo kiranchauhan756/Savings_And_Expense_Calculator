@@ -4,7 +4,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./components/Login/Login";
 import SignUp from "./components/Login/SignUp";
 import ContactUs from "./components/ContactUs/ContactUs";
-import DashBoard from "./components/Login/DashBoard";
 import Savings from "./components/Savings/Savings";
 import Transactions from "./components/Transaction/Transactions";
 import Spendings from "./components/Spendings/Spendings";
@@ -13,7 +12,7 @@ import Income from "./components/Income/Income";
 import Charts from "./components/Charts/Charts";
 import CalendarApp from "./components/Calendar/CalendarApp";
 import SideBar from "./components/SideBar/SideBar";
-import Home from "./Home";
+import Home from "./components/Home/Home";
 import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
   return (
@@ -29,11 +28,6 @@ function App() {
                 path="/contactUs"
                 element={<ContactUs />}
               ></Route>
-              <Route
-                exact="true"
-                path="/dashBoard"
-                element={<DashBoard />}
-              ></Route>
               <Route exact="true" path="/signUp" element={<SignUp />}></Route>
               <Route exact="true" path="/savings" element={<Savings />}></Route>
               <Route
@@ -42,7 +36,11 @@ function App() {
                 element={<Spendings />}
               ></Route>
               <Route exact="true" path="/sidebar" element={<SideBar />}></Route>
-              <Route exact="true" path="//" element={<Spendings />}></Route>
+              <Route
+                exact="true"
+                path="/spendings"
+                element={<Spendings />}
+              ></Route>
 
               <Route
                 exact="true"

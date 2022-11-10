@@ -26,20 +26,14 @@ const Login = () => {
     });
 
     if (response.ok) {
-      navigate("/dashboard");
+      navigate("/transactions");
     } else {
       setError(true);
     }
   }
 
   return (
-    <div
-      className="vh-100 bg-image   gradient-custom-3"
-      style={{
-        backgroundImage: `url(
-          "./tagline.png")`,
-      }}
-    >
+    <div className="vh-100 bg-image   gradient-custom-3">
       <div className="mask d-flex align-items-center h-100 gradient-custom-4">
         <div className="container h-90 ">
           <div className="row d-flex justify-content-center align-items-center h-80">

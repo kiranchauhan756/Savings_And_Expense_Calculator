@@ -32,10 +32,9 @@ const Savings = () => {
   }
 
   return (
-    <div>
-      <div>
-        <SideBar />
-      </div>
+    <div className="save-page">
+      <SideBar />
+
       <div className="new-expense ">
         <div className="new-expense__control">
           <label>Enter From Date:</label>

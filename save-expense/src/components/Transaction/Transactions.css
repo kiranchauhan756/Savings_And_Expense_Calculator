@@ -1,3 +1,7 @@
+.transPage {
+  background-color: honeydew;
+  height: 100%;
+}
 .new-expense__controls {
   display: flex;
   flex-wrap: wrap;
@@ -51,8 +55,8 @@
   font: inherit;
   cursor: pointer;
   padding: 1rem 2rem;
-  border: 1px solid #40005d;
-  background-color: #40005d;
+  border: 1px solid green;
+  background-color: green;
   color: white;
   border-radius: 12px;
   margin-right: 1rem;
@@ -60,8 +64,8 @@
 
 .new-expense button:hover,
 .new-expense button:active {
-  background-color: #510674;
-  border-color: #510674;
+  background-color: green;
+  border-color: green;
 }
 
 .new-expense button.alternative {
@@ -72,7 +76,7 @@
 
 .new-expense button.alternative:hover,
 .new-expense button.alternative:active {
-  background-color: #ddb3f8;
+  background-color: wheat;
 }
 
 .show {
