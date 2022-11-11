@@ -11,8 +11,13 @@
   width: 240px;
   left: -240px;
   height: 100%;
-  background: rgb(248, 114, 137);
+  background: lemonchiffon;
   transition: all 0.5s ease;
+}
+span {
+  color: green;
+  font-weight: bolder;
+  font-size: large;
 }
 .sidebar header {
   font-size: 28px;
@@ -28,7 +33,7 @@
   display: block;
   height: 65px;
   width: 100%;
-  color: black;
+  color: green;
   line-height: 65px;
   padding-left: 30px;
   box-sizing: border-box;
@@ -44,7 +49,7 @@ a:link {
   text-decoration: none;
 }
 a.active {
-  color: tomato;
+  color: red;
 }
 a:hover {
   font-size: 20px;

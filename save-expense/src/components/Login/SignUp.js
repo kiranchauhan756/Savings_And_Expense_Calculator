@@ -105,7 +105,7 @@ const SignUp = () => {
                     </label>
                     <br></br>
                     <input
-                      type="text"
+                      type="password"
                       id="password"
                       placeholder="Password"
                       className="form-control"
@@ -118,7 +118,7 @@ const SignUp = () => {
                     </label>
                     <br></br>
                     <input
-                      type="text"
+                      type="password"
                       id="cpassword"
                       className="form-control"
                       placeholder="Confirm Password"

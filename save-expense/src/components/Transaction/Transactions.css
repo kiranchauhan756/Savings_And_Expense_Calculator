@@ -1,6 +1,11 @@
 .transPage {
-  background-color: honeydew;
-  height: 100%;
+  background-color: rgb(234, 250, 225);
+  height: 1040px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  fill-opacity: inherit;
+  /* Needed to position the navbar */
+  position: relative;
 }
 .new-expense__controls {
   display: flex;

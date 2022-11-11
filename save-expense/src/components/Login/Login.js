@@ -77,7 +77,7 @@ const Login = () => {
                     </label>
                     <br></br>
                     <input
-                      type="text"
+                      type="password"
                       id="password"
                       className="form-control"
                       placeholder="Password"

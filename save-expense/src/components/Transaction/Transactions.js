@@ -52,6 +52,7 @@ const Transactions = () => {
       <SideBar />
       <div className="new-expense">
         <div className="new-expense__control">
+          <h5>Enter range to see transactions</h5>
           <label>Enter From Date:</label>
           <input type="date" required={true} ref={fromExpenseDateRef} />
         </div>
