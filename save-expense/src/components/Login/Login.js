@@ -66,6 +66,7 @@ const Login = () => {
                     <input
                       type="text"
                       id="email"
+                      name="username"
                       className="form-control"
                       placeholder="E-mail"
                       required={true}
@@ -79,6 +80,7 @@ const Login = () => {
                     <input
                       type="password"
                       id="password"
+                      name="password"
                       className="form-control"
                       placeholder="Password"
                       required={true}
