@@ -5,11 +5,9 @@ import { useState } from "react";
 
 const CalendarApp = () => {
   const [date, setDate] = useState(new Date());
-
   return (
     <div>
       <SideBar />
-
       <div
         style={{
           marginLeft: "650px",

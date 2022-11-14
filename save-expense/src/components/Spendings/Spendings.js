@@ -14,7 +14,7 @@ const Spendings = () => {
   };
 
   return (
-    <div>
+    <div className="vh-100" style={{ background: "#DCF2C4" }}>
       <SideBar />
 
       <NewExpense onAddExpense={addExpenseHandler} />

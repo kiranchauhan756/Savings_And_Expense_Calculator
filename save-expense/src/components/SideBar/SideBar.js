@@ -25,7 +25,7 @@ const SideBar = () => {
 
         <NavLink to="/spendings">
           <i className="fa fa-archive" style={{ color: "green" }}></i>
-          <span>Spendings</span>
+          <span>Expense</span>
         </NavLink>
 
         <NavLink to="/savings">
@@ -35,6 +35,10 @@ const SideBar = () => {
         <NavLink to="/setgoals">
           <i className="fas fa-bullseye" style={{ color: "green" }}></i>
           <span>Set Goals</span>
+        </NavLink>
+        <NavLink to="/history">
+          <i className="fa fa-credit-card" style={{ color: "green" }}></i>
+          <span>History</span>
         </NavLink>
         <NavLink to="/charts">
           <i className="fa fa-database" style={{ color: "green" }}></i>

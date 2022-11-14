@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "react-bootstrap";
-import SideBar from "../SideBar/SideBar";
+import { NavLink } from "react-router-dom";
+
 const ContactUs = () => {
   const [formStatus, setFormStatus] = React.useState("Send Message");
   const onSubmit = (e) => {
@@ -17,9 +18,13 @@ const ContactUs = () => {
 
   return (
     <div>
-      <SideBar />
+      <nav className="topnav1">
+        <NavLink to="/">Home</NavLink>
+        <NavLink to="/login">Login</NavLink>
+        <NavLink to="/aboutUs">AboutUs</NavLink>
+      </nav>
 
-      <div className="container mt-5">
+      <div className="vh-100" style={{ background: "#DCF2C4" }}>
         <div className="row d-flex justify-content-center align-items-center h-100">
           <div className="col-12 col-md-9 col-lg-7 col-xl-6">
             <div className="card">

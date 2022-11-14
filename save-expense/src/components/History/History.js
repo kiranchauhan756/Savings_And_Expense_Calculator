@@ -1,21 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import SideBar from "../SideBar/SideBar";
-import "./Transactions.css";
+import "./History.css";
 
-const Transactions = () => {
-  const now = new Date();
+const History = () => {
+  const fromExpenseDateRef = useRef("");
+  const toExpenseDateRef = useRef("");
   const [expenses, setExpenses] = useState([]);
   const [income, setIncome] = useState([]);
   const [totalExpense, setTotalExpense] = useState(null);
   const [totalIncome, setTotalIncome] = useState(null);
-  useEffect(() => {
-    submitHandler();
-  }, []);
 
-  async function submitHandler() {
+  async function submitHandler(event) {
+    event.preventDefault();
+
     const expense_details = {
-      fromDate: new Date(now.getFullYear(), now.getMonth(), 1),
-      toDate: new Date(now.getFullYear(), now.getMonth() + 1, 0),
+      fromDate: fromExpenseDateRef.current.value,
+      toDate: toExpenseDateRef.current.value,
     };
     const request = {
       method: "POST",
@@ -50,94 +50,88 @@ const Transactions = () => {
   return (
     <div className="transPage">
       <SideBar />
-      <h5 style={{ color: "tomato", textAlign: "center" }}>
-        Your current month transactions are:
-      </h5>
       <div className="new-expense">
+        <div className="new-expense__control">
+          <h5>Enter range to see transactions</h5>
+          <label>Enter From Date:</label>
+          <input type="date" required={true} ref={fromExpenseDateRef} />
+        </div>
+        <div className="new-expense__control">
+          <label>Enter To Date:</label>
+          <input type="date" required={true} ref={toExpenseDateRef} />
+        </div>
+        <div className="new-expense__actions">
+          <button type="submit" onClick={submitHandler}>
+            Submit
+          </button>
+        </div>
+
         <div className="show">
-          <table className="content-table table table-hover">
+          <table className="content-table">
             <tbody>
               {income.map((income, index) => (
-                <tr key={index} className="sourceIncome table-secondary">
-                  <td
-                    className="td-left"
-                    style={{ color: "green", fontWeight: "bold" }}
-                  >
-                    {income.sourceIncome}
-                  </td>
-                  <td
-                    className="td-right"
-                    style={{ color: "green", fontWeight: "bold" }}
-                  >
-                    &#x20b9; {income.groupedSum}
-                  </td>
+                <tr key={index} className="sourceIncome">
+                  <td className="td-left">{income.sourceIncome}</td>
+                  <td className="td-right"> &#x20b9; {income.groupedSum}</td>
                 </tr>
               ))}
               {expenses.map((expense, index) => (
-                <tr key={index} className="sourceExpense table-danger">
-                  <td
-                    className="td-left"
-                    style={{ color: "red", fontWeight: "bold" }}
-                  >
-                    {expense.category}
-                  </td>
-                  <td
-                    className="td-right"
-                    style={{ color: "red", fontWeight: "bold" }}
-                  >
-                    &#x20b9; {expense.groupedSum}
-                  </td>
+                <tr key={index} className="sourceExpense">
+                  <td className="td-left">{expense.category}</td>
+                  <td className="td-right"> &#x20b9; {expense.groupedSum}</td>
                 </tr>
               ))}
-              {totalIncome > 0 && (
-                <tr className="table-info">
-                  <td colSpan={2}>
+              <tr>
+                <td colSpan={2}>
+                  {totalIncome > 0 && (
                     <div style={{ color: "green", fontWeight: "bold" }}>
                       Total Income is :: &#x20b9; {totalIncome}
                     </div>
-                  </td>
-                </tr>
-              )}
-              {totalExpense > 0 && (
-                <tr className="table-warning">
-                  <td colSpan={2}>
+                  )}
+                </td>
+              </tr>
+              <tr>
+                <td colSpan={2}>
+                  {totalExpense > 0 && (
                     <div
                       style={{
                         color: "red",
                         fontWeight: "bold",
+                        background: "lightblue",
                       }}
                     >
                       Total Expense is :: &#x20b9; {totalExpense}
                     </div>
-                  </td>
-                </tr>
-              )}
-              {totalIncome > totalExpense && (
-                <tr className="table-success">
-                  <td colSpan={2}>
+                  )}
+                </td>
+              </tr>
+              <tr>
+                <td colSpan={2}>
+                  {totalIncome > totalExpense && (
                     <div
                       style={{
                         color: "blue",
+                        background: "lightgrey",
                         fontWeight: "bold",
                       }}
                     >
                       You have now ::💸 &#x20b9; {totalIncome - totalExpense}
                     </div>
-                  </td>
-                </tr>
-              )}
-              {totalIncome < totalExpense && (
-                <tr>
-                  <td colSpan={2}>
+                  )}
+                </td>
+              </tr>
+              <tr>
+                <td colSpan={2}>
+                  {totalIncome < totalExpense && (
                     <div style={{ color: "red", background: "lightyellow" }}>
                       😢😢😢{totalIncome - totalExpense}
                     </div>
-                  </td>
-                </tr>
-              )}
-              {totalIncome === 0 && totalExpense === 0 && (
-                <tr>
-                  <td colSpan={2}>
+                  )}
+                </td>
+              </tr>
+              <tr>
+                <td colSpan={2}>
+                  {totalIncome === 0 && totalExpense === 0 && (
                     <div
                       style={{
                         color: "red",
@@ -150,9 +144,9 @@ const Transactions = () => {
                       There is no Income or Expense transaction during the
                       selected period. Please select any other period.
                     </div>
-                  </td>
-                </tr>
-              )}
+                  )}
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -160,4 +154,4 @@ const Transactions = () => {
     </div>
   );
 };
-export default Transactions;
+export default History;

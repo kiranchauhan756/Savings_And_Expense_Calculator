@@ -13,6 +13,9 @@ import Charts from "./components/Charts/Charts";
 import CalendarApp from "./components/Calendar/CalendarApp";
 import SideBar from "./components/SideBar/SideBar";
 import Home from "./components/Home/Home";
+import AboutUs from "./components/AboutUs/AboutUs";
+import History from "./components/History/History";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
   return (
@@ -36,17 +39,16 @@ function App() {
                 element={<Spendings />}
               ></Route>
               <Route exact="true" path="/sidebar" element={<SideBar />}></Route>
-              <Route
-                exact="true"
-                path="/spendings"
-                element={<Spendings />}
-              ></Route>
+
+              <Route exact="true" path="/aboutUs" element={<AboutUs />}></Route>
 
               <Route
                 exact="true"
                 path="/setgoals"
                 element={<SetGoal />}
               ></Route>
+
+              <Route exact="true" path="/history" element={<History />}></Route>
               <Route
                 exact="true"
                 path="/transactions"

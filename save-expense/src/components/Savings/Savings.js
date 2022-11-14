@@ -7,6 +7,8 @@ const Savings = () => {
   const toExpenseDateRef = useRef("");
   const [expenses, setExpenses] = useState([]);
   const [income, setIncome] = useState([]);
+  const [totalExpense, setTotalExpense] = useState(null);
+  const [totalIncome, setTotalIncome] = useState(null);
 
   async function submitHandler(event) {
     event.preventDefault();
@@ -22,15 +24,28 @@ const Savings = () => {
       },
       body: JSON.stringify(expense_details),
     };
-    fetch("http://localhost:8080/expense/list", request)
+    fetch("http://localhost:8080/expense/groupByCategory", request)
       .then((response) => response.json())
-      .then((detail) => setExpenses(detail));
+      .then((detail) => {
+        setExpenses(detail);
+        setTotalExpense(0);
+        if (detail.length > 0) {
+          let expense = detail[detail.length - 1];
+          setTotalExpense(expense.totalSum);
+        }
+      });
 
-    fetch("http://localhost:8080/income/listIncome", request)
+    fetch("http://localhost:8080/income/groupBySourceIncome", request)
       .then((response) => response.json())
-      .then((incomeDetail) => setIncome(incomeDetail));
+      .then((incomeDetail) => {
+        setIncome(incomeDetail);
+        setTotalIncome(0);
+        if (incomeDetail.length > 0) {
+          let income = incomeDetail[incomeDetail.length - 1];
+          setTotalIncome(income.totalSum);
+        }
+      });
   }
-
   return (
     <div className="save-page">
       <SideBar />
@@ -49,28 +64,51 @@ const Savings = () => {
             Submit
           </button>
         </div>
-        <div className="fetch-details">
-          {expenses.length > 0 && (
-            <ul>
-              {expenses.map((expense) => (
-                <li key={expense.id}>
-                  {expense.title}
-                  {expense.amount}
-                </li>
-              ))}
-            </ul>
-          )}
-          {income.length > 0 && (
-            <ul>
-              {income.map((income) => (
-                <li key={income.id}>
-                  {income.income}
-                  {income.sourceIncome}
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
+        <table className="content-table table table-hover">
+          <tbody>
+            {totalIncome > totalExpense && (
+              <tr className="table-success">
+                <td colSpan={2}>
+                  <div
+                    style={{
+                      color: "blue",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    Your Savings ::💸 &#x20b9; {totalIncome - totalExpense}
+                  </div>
+                </td>
+              </tr>
+            )}
+            {totalIncome < totalExpense && (
+              <tr>
+                <td colSpan={2}>
+                  <div style={{ color: "red", background: "lightyellow" }}>
+                    😢😢😢{totalIncome - totalExpense}
+                  </div>
+                </td>
+              </tr>
+            )}
+            {totalIncome === 0 && totalExpense === 0 && (
+              <tr>
+                <td colSpan={2}>
+                  <div
+                    style={{
+                      color: "red",
+                      fontWeight: "bold",
+                      background: "white",
+                      fontSize: "large",
+                      fontStyle: "italic",
+                    }}
+                  >
+                    There is no Income or Expense transaction during the
+                    selected period. Please select any other period.
+                  </div>
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
       </div>
     </div>
   );

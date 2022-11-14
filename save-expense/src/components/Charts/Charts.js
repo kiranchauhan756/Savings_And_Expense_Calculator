@@ -1,41 +1,41 @@
-// import React from "react";
-// import { MDBChart, MDBCol } from "mdbreact";
+import React from "react";
+import Chart from "chart.js/auto";
+import { Bar } from "react-chartjs-2";
 
 const Charts = () => {
-  // return (
-  //   <div>
-  //     <MDBCol lg="7">
-  //       <MDBChart
-  //         type="doughnut"
-  //         data={{
-  //           labels: [
-  //             "Monday",
-  //             "Tuesday",
-  //             "Wednesday",
-  //             "Thursday",
-  //             "Friday",
-  //             "Saturday",
-  //             "Sunday",
-  //           ],
-  //           datasets: [
-  //             {
-  //               label: "Traffic",
-  //               data: [2112, 2343, 2545, 3423, 2365, 1985, 987],
-  //               backgroundColor: [
-  //                 "rgba(63, 81, 181, 0.5)",
-  //                 "rgba(77, 182, 172, 0.5)",
-  //                 "rgba(66, 133, 244, 0.5)",
-  //                 "rgba(156, 39, 176, 0.5)",
-  //                 "rgba(233, 30, 99, 0.5)",
-  //                 "rgba(66, 73, 244, 0.4)",
-  //                 "rgba(66, 133, 244, 0.2)",
-  //               ],
-  //             },
-  //           ],
-  //         }}
-  //       />
-  //     </MDBCol>
-  //   </div>
-  // );
+  const labels = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "Novembor",
+    "December",
+  ];
+
+  const data = {
+    labels: labels,
+    datasets: [
+      {
+        label: "spendings ₨",
+        backgroundColor: "rgb(255, 99, 132)",
+        borderColor: "rgb(255, 99, 132)",
+        height: "50%",
+        width: "40%",
+        data: [22, 10, 5, 2, 20, 30, 45, 20, 19, 67, 4, 77],
+      },
+    ],
+  };
+  return (
+    <div>
+      <Bar data={data} />
+    </div>
+  );
 };
+
 export default Charts;
