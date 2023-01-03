@@ -36,6 +36,8 @@ const ExpenseForm = (props) => {
             <option value="FUEL">Fuel</option>
             <option value="SHOPPING">Shopping</option>
             <option value="TRAVEL">Travel</option>
+            <option value="MEDICINE">Medicine</option>
+            <option value="SCHOOLFEES">SchoolFees</option>
             <option value="OTHERS">Others</option>
           </select>
         </div>
@@ -48,7 +50,7 @@ const ExpenseForm = (props) => {
           <input
             type="date"
             min="2019-01-01"
-            max="2022-12-31"
+            max="2023-12-31"
             ref={expenseDateRef}
             required={true}
           />

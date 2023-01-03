@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import SideBar from "../SideBar/SideBar.js";
 import Expenses from "./Expenses/Expenses.js";
+import Popup from "reactjs-popup";
+import "reactjs-popup/dist/index.css";
 
 import NewExpense from "./NewExpense/NewExpense.js";
 

@@ -1,7 +1,5 @@
 package com.savings.bachat.controller;
 
-//import javax.validation.Valid;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,7 +20,7 @@ public class UserController {
 	}
 
 	@PostMapping("/login")
-	public ResponseEntity<User> login( @RequestBody User user) {
+	public ResponseEntity<User> login(@RequestBody User user) {
 		User user1 = userService.login(user);
 		if (user1 != null) {
 			return ResponseEntity.ok().body(user1);
@@ -33,10 +31,10 @@ public class UserController {
 	}
 
 	@PostMapping("/signup")
-	public ResponseEntity<User> signup( @RequestBody User user) {
+	public ResponseEntity<User> signup(@RequestBody User user) {
 		User user1 = userService.signup(user);
 		return ResponseEntity.status(HttpStatus.CREATED).body(user1);
-		
+
 	}
 
 }

@@ -2,7 +2,7 @@ package com.savings.bachat.enums;
 
 public enum ExpenseCategory {
 
-	CLOTHES("Clothes"), FOOD("Food"), FUEL("Fuel"), SHOPPING("Shopping"), TRAVEL("Travel"),OTHERS("Others");
+	CLOTHES("Clothes"), FOOD("Food"), FUEL("Fuel"), SHOPPING("Shopping"), TRAVEL("Travel"),MEDICINE("medicine"),SCHOOLFEES("fees"),OTHERS("Others");
 
 	private String category;
 

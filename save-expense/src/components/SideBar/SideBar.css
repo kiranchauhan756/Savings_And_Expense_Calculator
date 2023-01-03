@@ -86,7 +86,7 @@ label #cancel {
 }
 label #cancel {
   opacity: 0;
-  visibility: hidden;
+  visibility: visible;
 }
 #check:checked ~ .sidebar {
   left: 0;
@@ -94,7 +94,7 @@ label #cancel {
 #check:checked ~ label #btn {
   margin-left: 245px;
   opacity: 0;
-  visibility: hidden;
+  visibility: visible;
 }
 #check:checked ~ label #cancel {
   margin-left: 245px;
@@ -117,7 +117,7 @@ label #cancel {
     position: absolute;
     margin-left: 23px;
     opacity: 0;
-    visibility: hidden;
+    visibility: visible;
   }
   .sidebar a {
     height: 60px;
