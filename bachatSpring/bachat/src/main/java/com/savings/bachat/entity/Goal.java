@@ -1,6 +1,7 @@
 package com.savings.bachat.entity;
 
 import java.math.BigDecimal;
+import java.time.Month;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,11 +12,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.savings.bachat.enums.SetGoalCategory;
-
 @Entity
-@Table(name = "SET_GOALS")
-public class SetGoal {
+@Table(name = "GOALS")
+public class Goal {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -29,18 +28,30 @@ public class SetGoal {
 	}
 
 	@Enumerated(EnumType.STRING)
-	@Column(name = "goal", nullable = false)
-	private SetGoalCategory setGoalCategory;
+	@Column(name = "goalMonth", nullable = false)
+	private Month goalMonth;
+	
+	@Column(name = "goalYear", nullable = false)
+	private String goalYear;
 
 	@Column(name = "target", nullable = false, precision = 8, scale = 2)
 	private BigDecimal target;
 
-	public SetGoalCategory getSetGoalCategory() {
-		return setGoalCategory;
+	
+	public Month getGoalMonth() {
+		return goalMonth;
 	}
 
-	public void setSetGoalCategory(SetGoalCategory setGoalCategory) {
-		this.setGoalCategory = setGoalCategory;
+	public void setGoalMonth(Month goalMonth) {
+		this.goalMonth = goalMonth;
+	}
+	
+	public String getGoalYear() {
+		return goalYear;
+	}
+
+	public void setGoalYear(String goalYear) {
+		this.goalYear = goalYear;
 	}
 
 	public BigDecimal getTarget() {

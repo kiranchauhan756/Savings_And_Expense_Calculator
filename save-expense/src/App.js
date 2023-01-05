@@ -9,8 +9,6 @@ import Transactions from "./components/Transaction/Transactions";
 import Spendings from "./components/Spendings/Spendings";
 import SetGoal from "./components/SetGoal/SetGoal";
 import Income from "./components/Income/Income";
-import Charts from "./components/Charts/Charts";
-import CalendarApp from "./components/Calendar/CalendarApp";
 import SideBar from "./components/SideBar/SideBar";
 import Home from "./components/Home/Home";
 import AboutUs from "./components/AboutUs/AboutUs";
@@ -55,12 +53,6 @@ function App() {
                 element={<Transactions />}
               ></Route>
               <Route exact="true" path="/income" element={<Income />}></Route>
-              <Route exact="true" path="/charts" element={<Charts />}></Route>
-              <Route
-                exact="true"
-                path="/calendarApp"
-                element={<CalendarApp />}
-              ></Route>
             </Routes>
           </div>
         </BrowserRouter>

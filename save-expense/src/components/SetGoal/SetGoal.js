@@ -1,16 +1,17 @@
 import React, { useRef } from "react";
 import SideBar from "../SideBar/SideBar.js";
-import Popup from "reactjs-popup";
+import swal from "sweetalert";
 import "reactjs-popup/dist/index.css";
 
 const SetGoal = () => {
-  const setGoalCategoryRef = useRef("");
+  const goalMonthRef = useRef("");
   const targetRef = useRef("");
   async function submitHandler(event) {
     event.preventDefault();
     const setGoalData = {
-      setGoalCategory: setGoalCategoryRef.current.value,
+      goalMonth: goalMonthRef.current.value,
       target: targetRef.current.value,
+      goalYear: "2023",
     };
     const response = await fetch("http://localhost:8080/setGoals/", {
       method: "POST",
@@ -20,7 +21,12 @@ const SetGoal = () => {
       },
     });
     if (response.ok) {
-      console.log("ok");
+      swal({
+        title: "🎯",
+        text: "Added Goal SuccessFully",
+        icon: "success",
+        button: "Ok!",
+      });
 
       return response.json();
     }
@@ -33,7 +39,7 @@ const SetGoal = () => {
         <form onSubmit={submitHandler}>
           <div className="new-expense__control">
             <label>Select Month:</label>
-            <select required={true} ref={setGoalCategoryRef}>
+            <select required={true} ref={goalMonthRef}>
               <option value="JANUARY">January</option>
               <option value="FEBRUARY">February</option>
               <option value="MARCH">March</option>
@@ -47,14 +53,11 @@ const SetGoal = () => {
               <option value="NOVEMBOR">Novembor</option>
               <option value="DECEMBER">December</option>
             </select>
+
             <label>Enter Spending Target:</label>
             <input type="number" required={true} ref={targetRef} />
             <div className="new-expense__actions">
-              <Popup trigger={<button type="submit"> Add Target</button>}>
-                <div style={{ color: "green", fontWeight: "bold" }}>
-                  Added Successfully💰
-                </div>
-              </Popup>
+              <button type="submit"> Add Target</button>
             </div>
           </div>
         </form>

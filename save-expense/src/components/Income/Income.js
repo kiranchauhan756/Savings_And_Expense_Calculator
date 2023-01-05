@@ -1,8 +1,9 @@
 import "./Income.css";
 import SideBar from "../SideBar/SideBar";
 import { useRef } from "react";
+import swal from "sweetalert";
 import React from "react";
-import Popup from "reactjs-popup";
+
 import "reactjs-popup/dist/index.css";
 const Income = () => {
   const incomeRef = useRef("");
@@ -24,7 +25,12 @@ const Income = () => {
       },
     });
     if (response.ok) {
-      console.log("ok");
+      swal({
+        title: "💰💰",
+        text: "Added Income SuccessFully",
+        icon: "success",
+        button: "Ok!",
+      });
 
       return response.json();
     }
@@ -56,11 +62,7 @@ const Income = () => {
             <input type="date" required={true} ref={dateRef} />
           </div>
           <div className="new-expense__actions">
-            <Popup trigger={<button type="submit"> Add Income</button>}>
-              <div style={{ color: "green", fontWeight: "bold" }}>
-                Added Successfully💰
-              </div>
-            </Popup>
+            <button type="submit"> Add Income</button>
           </div>
         </div>
       </form>

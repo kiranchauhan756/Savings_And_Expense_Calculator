@@ -40,15 +40,6 @@ const SideBar = () => {
           <i className="fa fa-credit-card" style={{ color: "green" }}></i>
           <span>History</span>
         </NavLink>
-        <NavLink to="/charts">
-          <i className="fa fa-database" style={{ color: "green" }}></i>
-          <span>Charts</span>
-        </NavLink>
-        <NavLink to="/calendarApp">
-          <i className="fa fa-calendar" style={{ color: "green" }}></i>
-          <span>Calendar</span>
-        </NavLink>
-
         <NavLink to="/">
           <i className="fa fa-arrow-circle-left" style={{ color: "green" }}></i>
           <span>Log Out</span>
