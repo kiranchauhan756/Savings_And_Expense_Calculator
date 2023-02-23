@@ -15,6 +15,7 @@ const Spendings = () => {
       amount: incomeRef.current.value,
       expenseDate: expenseDateRef.current.value,
     };
+
     const response = await fetch("http://localhost:8080/expense/", {
       method: "POST",
       body: JSON.stringify(expenseData),
@@ -22,7 +23,16 @@ const Spendings = () => {
         "Content-Type": "application/json",
       },
     });
-    if (response.ok) {
+
+    if (!response.ok) {
+      swal({
+        title:
+          "Either you don't add goal to this month or you have reached your target limit for this month",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      });
+    } else {
       swal({
         title: "🫤🫤",
         text: "Added Expense SuccessFully",
@@ -30,19 +40,12 @@ const Spendings = () => {
         button: "Ok!",
       });
     }
-    // swal({
-    //   title:
-    //     "Either you don't add goal to this month or you have reached your target limit for this month",
-    //   icon: "warning",
-    //   buttons: true,
-    //   dangerMode: true,
-    // });
   }
   return (
     <div className="expense-page">
       <form onSubmit={submitHandler}>
         <SideBar />
-        <div class="new-expense">
+        <div className="new-expense">
           <div className="new-expense__controls">
             <div className="new-expense__control">
               <label>Category</label>

@@ -32,6 +32,9 @@ public class ExpenseController {
 	@PostMapping("/")
 	public ResponseEntity<Expenses> expense(@RequestBody Expenses data) {
 		Expenses expense1 = expenseService.saveExpense(data);
+		if(expense1 == null) {
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(expense1);
+		}
 		return ResponseEntity.status(HttpStatus.CREATED).body(expense1);
 	}
 

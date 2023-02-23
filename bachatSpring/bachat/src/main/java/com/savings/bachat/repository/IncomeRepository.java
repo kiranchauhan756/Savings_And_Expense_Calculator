@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.savings.bachat.entity.Income;
 
 @Repository
-public interface IncomeRepository extends JpaRepository<Income, String> {
+public interface IncomeRepository extends JpaRepository<Income, Long> {
 
 	List<Income> findAllByIncomeDateGreaterThanEqualAndIncomeDateLessThanEqual(Date fromDate, Date toDate);
 
